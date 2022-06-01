@@ -1,0 +1,43 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update  # app 로딩 시점에 테이블을 다 삭제한 후 다시 생성. 마지막에 APP을 내려도 DB를 남겨놓음
+      use-new-id-generator-mappings: true
+#    show-sql: true #jpa가 실행하는 쿼리를 콘솔에 다 보여줌
+    properties:
+      hibernate:
+        show_sql: false
+        format_sql: true # 쿼리가 한줄로 나오는 게 아니라 이쁘게 개행을 해서 나오게 해줌
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  datasource:
+    url: jdbc:mysql://localhost:3306/jpa?seUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 200MB
+      max-request-size: 20MB
+  mvc:
+    converters:
+      preferred-json-mapper: gson
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: kbjid17
+    password: khbs1995!
+    properties:
+      mail:
+        smtp:
+          auth: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+#   org.hibernate.type: trace # 파라미터 바인딩 된 파라미터까지 보여줌
