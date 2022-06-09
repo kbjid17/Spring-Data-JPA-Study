@@ -6,7 +6,7 @@ server:
 spring:
   jpa:
     hibernate:
-      ddl-auto: update  # app 로딩 시점에 테이블을 다 삭제한 후 다시 생성. 마지막에 APP을 내려도 DB를 남겨놓음
+      ddl-auto: create  # app 로딩 시점에 테이블을 다 삭제한 후 다시 생성. 마지막에 APP을 내려도 DB를 남겨놓음
       use-new-id-generator-mappings: true
 #    show-sql: true #jpa가 실행하는 쿼리를 콘솔에 다 보여줌
     properties:
